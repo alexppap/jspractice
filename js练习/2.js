@@ -1,0 +1,13 @@
+db.user.insert({"name":"w1","age":"22"})
+db.user.insert({"name":"w2","age":"24"})
+db.user.insert({"name":"a1","age":"22"})
+db.user.insert({"name":"u1","age":"22"})
+
+db.article.insert({"title":"gototravel","desc":"44"})
+db.article.insert({"title":"gotoshower","desc":"33"})
+db.user.find({"age":"24"})
+db.article.find({"title":/go/})
+db.article.find({"title":/s/})
+db.article.find({"title":"gototravel"})
+db.article.find({},{"title":1})
+db.article.find()

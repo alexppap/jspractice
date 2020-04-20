@@ -2,7 +2,7 @@ while(line = readline()){
   var arr = line.split(' ');
   print(jumpFloor(arr));
 }
-//牛客网打印js
+//牛客网打印js例子
 
 var num=parseInt(readline());
 var line=readline();

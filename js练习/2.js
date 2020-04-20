@@ -11,3 +11,19 @@ db.article.find({"title":/s/})
 db.article.find({"title":"gototravel"})
 db.article.find({},{"title":1})
 db.article.find()
+let res;
+function Power(base, exponent)
+{
+  if(base==0 && exponent!=0){
+    return 0;
+  }
+  if(base==1){
+    return 1;
+  }
+  if(base!=0 && exponent==0){
+    for(let i=1;i<exponent;i++){
+       res =base*base
+    }
+    return res;
+  }
+}

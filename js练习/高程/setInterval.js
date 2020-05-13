@@ -26,3 +26,15 @@ function increaseNumber () {
   }
 }
 setTimeout(increaseNumber, 1000)
+
+
+//用arguments.calle
+// setTimeout(function(){
+//   num++;
+//   console.log(num)
+//   if(num < max){
+//     setTimeout(arguments.callee,1000)
+//   } else{
+//     console.log('done')
+//   }
+// })

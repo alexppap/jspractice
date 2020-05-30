@@ -8,4 +8,6 @@ function newarr (arr) {
   }
   return res;
 }
-console.log(newarr(arr))
+// console.log(newarr(arr))
+console.log(Array.from(new Set(arr)))
+

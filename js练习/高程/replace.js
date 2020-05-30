@@ -11,3 +11,5 @@ console.log(result)
 var text = 'cat, bat, sat, fat';
 var result = text.replace(/at/g,'word ($1)');
 console.log(result)
+
+//replace(/\B(?=(\d{3})+$)/g, ',')

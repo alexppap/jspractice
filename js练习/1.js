@@ -27,3 +27,34 @@ function twoSum (arr, sum) {
     }
     return "notfound"
 }
+
+
+function IsContinuous(numbers)
+{
+    var arr = [-5]
+    for(var i=0;i<13;i++){
+        arr.push(0);
+    }
+    var len = numbers.length;
+    var min = 14;
+    var max = -1;
+    if(len!==5){
+        return false;
+    }
+    for(var j=0;j<len;j++){
+        arr[numbers[j]]++
+        if(numbers[j] === 0){
+            continue;
+        }
+        if(arr[numbers[j]]>1){
+            return false;
+        }
+        if(numbers[i]>max){
+            max = numbers[j];
+        }
+        if(numbers[i]<min){
+            min = numbers[j];
+        }
+    }
+    return max - min < 5;
+}

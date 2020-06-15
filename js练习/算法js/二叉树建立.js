@@ -71,4 +71,5 @@ var nums = [10,3,18,2,4,13,21,9,8,9];
 for(var i = 0;i < nums.length;i ++){
     bst.insert(nums[i]);
 }
-bst.postOrder(bst.root);
+bst.preOrder(bst.root);
+console.log('****************')

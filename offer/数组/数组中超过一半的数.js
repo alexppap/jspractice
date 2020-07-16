@@ -7,7 +7,7 @@ function MoreThanHalfNum_Solution(numbers){
   var obj = {}; //计数
   for(var i=0;i<numbers.length;i++){
     if(!obj[numbers[i]]){
-      obj[numbers[i]] = 0;
+      obj[numbers[i]] = 1;
     } else {
       obj[numbers[i]]++;
     }
@@ -19,3 +19,20 @@ function MoreThanHalfNum_Solution(numbers){
   }
   return 0;
 }
+
+//摩尔投票法
+var majorityElement = function(nums) {
+  let count = 1;
+  let majority = nums[0];
+  for(let i = 1; i < nums.length; i++) {
+      if (count === 0) {
+          majority = nums[i];
+      }
+      if (nums[i] === majority) {
+          count ++;
+      } else {
+          count --;
+      }
+  }
+  return majority;
+};

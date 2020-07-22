@@ -3,6 +3,10 @@ function IsBalanced_Solution(pRoot) {
     return true;
   }
   return Math.abs(height(pRoot.left) - height(pRoot.right)) <=1;
+//   if(Math.abs(height(pRoot.left) - height(pRoot.right)) >1){
+//     return false;
+// }
+//   return isBalanced(pRoot.left) && isBalanced(pRoot.right);
 }
 
 function height (node){

@@ -14,12 +14,11 @@ function deepClone(obj) {
 
 
 
-
 // function deepClone(obj){
-//   var newobj = obj instanceof Array ? [] : {};
-//   for(var item in obj){
-//     var temp = typeof obj[item] !== 'object' ? deepClone(obj[item]) : obj[item];
-//     newobj[item] = temp;
+//   let obj = Array.isArray(obj) ? [] : {};
+//   for(let item in obj){
+//     let temp = typeof obj[item] =='object' ? deepClone(obj) : obj[item];
+//     newObj[item] = temp;
 //   }
-//   return newobj;
+//   return newObj;
 // }

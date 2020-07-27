@@ -10,4 +10,5 @@ function newarr (arr) {
 }
 // console.log(newarr(arr))
 console.log(Array.from(new Set(arr)))
+console.log([...new Set(arr)])
 

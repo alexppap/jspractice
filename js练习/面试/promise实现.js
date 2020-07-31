@@ -57,6 +57,24 @@ function promiseAll(promises) {
       }
   })
 }
+//Promise.race
+function promiseRace(promises){
+  if(!isArray(promises)){
+    throw new Error('error');
+  }
+  return new Promise((resolve,reject)=>{
+    let num = promises.length;
+    for(let i=0;i<num;i++){
+      Promise.resolve(promises[i].then((value)=>{
+        resolve(value);
+        return;
+      })), err =>{
+        reject(err);
+        return;
+      }
+    }
+  })
+}
 
 // function promiseAll (promises){
 //   if(!isArray(promises)){
@@ -107,4 +125,16 @@ class Promise {
     reject(e)
   }
 }
+}
+
+Promise.prototype.finally = function (callback) {
+  return this.then((value) => {
+      return Promise.resolve(callback()).then(() => {
+          return value;
+      });
+  }, (err) => {
+      return Promise.resolve(callback()).then(() => {
+          throw err;
+      });
+  });
 }

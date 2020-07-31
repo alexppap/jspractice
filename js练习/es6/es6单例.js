@@ -17,4 +17,5 @@ class Db {
   }
 }
 
-const db1 = Db.getInstance()
+const db1 = Db.getInstance();
+const db2 = Db.getInstance();

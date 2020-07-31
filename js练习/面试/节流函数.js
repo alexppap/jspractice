@@ -25,3 +25,4 @@ function realFunc(){
 }
 // 采用了节流函数
 window.addEventListener('scroll',throttle(realFunc,500,1000));
+

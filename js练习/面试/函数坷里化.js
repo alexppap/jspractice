@@ -37,9 +37,9 @@
 //     return fn.apply(this, _args);
 //   };
 // }
-// function add(a, b, c) {
-//   return a + b+ c;
-// }
+function add(a, b, c) {
+  return a + b+ c;
+}
 // var addCurry = progressCurrying(add);
 // console.log(addCurry(1)(2)(3));
 

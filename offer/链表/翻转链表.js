@@ -15,6 +15,17 @@ function ReverseList(pHead)
     return pre;
 }
 
+// function reverse(phead){
+//     var pre,curr,temp;
+//     var curr = temp;
+//     while(curr!==null){
+//         temp = curr.next;
+//         curr.next = pre;
+//         pre = curr;
+//         curr = temp;
+//     }
+//     return pre;
+// }
 
 
 

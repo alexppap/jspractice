@@ -12,9 +12,7 @@ function insert(array) {
 } //插入排序
 
 var quickSort = function (arr) {
-  if (arr.length <= 1) {
-    return arr;
-  }
+  
 
   var pivotIndex = Math.floor(arr.length / 2);
 

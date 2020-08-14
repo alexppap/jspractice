@@ -24,3 +24,17 @@ function findOne(arr){
   return res;
 }
 console.log(findOne(arr))
+
+var arr1 = ['1','-2i'];
+var arr2 = ['3','4i'];
+
+function calnum(arr1,arr2){
+  var num0 = parseInt(arr1[0]);
+  var num1 = parseInt(arr1[1]);
+  var num2 = parseInt(arr2[0]);
+  var num3 = parseInt(arr2[1]);
+  var firstnum = num0 * num2 - num1 * num3;
+  var lastnum = num0 * num3 + num1 * num2;
+  return firstnum + '+' + lastnum + 'i';
+}
+console.log(calnum(arr1,arr2));

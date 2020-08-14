@@ -1,34 +1,52 @@
-function HeapSort(arr) {
-  arr = [0, ...arr]; // 方便左右子树表示
-  //第一步，构建初始堆
-  for (let i = ~~Math.length / 2; i > 0; i--) {
-    buildHeap(arr, i, arr.length);
-  }
- 
-  for (let i = arr.length; i > 1; i--) {
-    // 交换
-    [arr[1], arr[i - 1]] = [arr[i - 1], arr[1]];
-    // 根元素与末尾元素交换，再构建大顶堆
-    buildHeap(arr, 1, i - 1);
-  }
-  return arr.slice(1); // 移除添加的0元素
+
+
+function swap (A,i,j){
+  let temp = A[i];
+  A[i] = A[j];
+  A[j] = temp;
 }
- 
-// 构造大顶堆
-function buildHeap(arr, i, length) {
-  let temp = arr[i];
-  for (let j = 2 * i; j <= length; j *= 2) {
-    if (arr[j] < arr[j + 1]) j++;
-    if (temp > arr[j]) break;
-    arr[i] = arr[j];
-    i = j;
+
+// 将 i 结点以下的堆整理为大顶堆，注意这一步实现的基础实际上是：
+// 假设 结点 i 以下的子堆已经是一个大顶堆，adjustheap 函数实现的
+// 功能是实际上是：找到 结点 i 在包括结点 i 的堆中的正确位置。后面
+// 将写一个 for 循环，从第一个非叶子结点开始，对每一个非叶子结点
+// 都执行 adjustheap 操作，所以就满足了结点 i 以下的子堆已经是一大
+//顶堆
+function adjustHeap(A,i,length){
+  let temp = A[i]; // 当前父节点
+  //j<length 的目的是对结点 i 以下的结点全部做顺序调整
+  for(let j=2*i+1;j<length;j=2*j+1){
+    temp = A[i];  // 将 A[i] 取出，整个过程相当于找到 A[i] 应处于的位置
+    if(j+1<length&&A[j]<A[j+1]){
+      j++; // 找到两个孩子中较大的一个，再与父节点比较
+    }
+    if(temp < A[j]){
+      swap(A,i,j); // 如果父节点小于子节点:交换；否则跳出
+      i=j; // 交换后，temp 的下标变为 j
+    }else{
+      break;
+    }
   }
-  arr[i] = temp;
 }
- 
+
+function HeapSort(A){
+  // 初始化大顶堆，从第一个非叶子结点开始
+  for(let i=Math.floor(A.length/2-1);i>=0;i--){
+    adjustHeap(A,i,A.length);
+  }
+  // 排序，每一次for循环找出一个当前最大值，数组长度减一
+  for(let i=Math.floor(A.length-1);i>0;i--){
+    swap(A,0,i); // 根节点与最后一个节点交换
+    adjustHeap(A,0,i); // 从根节点开始调整，并且最后一个结点已经为当
+    // 前最大值，不需要再参与比较，所以第三个参数
+    // 为 i，即比较到最后一个结点前一个即可
+  }
+}
 // ------- 测试
-let arr = [3, 9, 5, 2, 6];
-console.log(HeapSort(arr)); // [ 9, 5, 6, 2, 3 ]
- 
-arr = [5, 3, 9, 8, 3, 4];
-console.log(HeapSort(arr)); // [ 8, 3, 3, 5, 9, 4 ]
+
+let arr1 = [3, 9, 5, 2, 6];
+HeapSort(arr1);
+console.log(arr1); // [ 9, 5, 6, 2, 3 ]
+ var arr2 = [1,2,6,7,3]
+HeapSort(arr2);
+console.log(arr2); 
